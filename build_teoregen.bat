@@ -1,26 +1,23 @@
 @echo off
 cd mcp
-mkdir reobf\minecraft\bstramke\OresDropMores2Base
-mkdir reobf\minecraft\bstramke\OresDropMores2Base\bstramke
-move reobf\minecraft\bstramke\OresDropMores2 reobf\minecraft\bstramke\OresDropMores2Base\bstramke
 
-rem mkdir reobf\minecraft\bstramke\OresDropMores2Base\bstramke\OresDropMores2\
-rem mkdir reobf\minecraft\bstramke\OresDropMores2Base\bstramke\OresDropMores2\textures
-rem mkdir reobf\minecraft\bstramke\OresDropMores2Base\bstramke\OresDropMores2\textures\icons
+rem this removes forestry but allows me to keep it in my sourcecode for future use
+rem del reobf\minecraft\bstramke\NetherStuffs\PluginForestry.class
 
-xcopy reobf\minecraft\forestry reobf\minecraft\bstramke\OresDropMores2Base\forestry\ /S
-xcopy src\minecraft\assets reobf\minecraft\bstramke\OresDropMores2Base\assets\ /S
+mkdir reobf\minecraft\bstramke\TEOreGenBase
+mkdir reobf\minecraft\bstramke\TEOreGenBase\bstramke
 
-copy src\minecraft\bstramke\OresDropMores2\mcmod.info reobf\minecraft\bstramke\OresDropMores2Base\mcmod.info
-rem copy src\minecraft\bstramke\OresDropMores2\resources\* reobf\minecraft\bstramke\OresDropMores2Base\bstramke\OresDropMores2\resources
-rem copy src\minecraft\bstramke\OresDropMores2\resources\textures\* reobf\minecraft\bstramke\OresDropMores2Base\bstramke\OresDropMores2\resources\textures
-rem copy src\minecraft\bstramke\OresDropMores2\resources\textures\gui\* reobf\minecraft\bstramke\OresDropMores2Base\bstramke\OresDropMores2\resources\textures\gui
+move reobf\minecraft\bstramke\TEOreGenBase reobf\minecraft\bstramke\TEOreGenBase\bstramke
+
+mkdir reobf\minecraft\bstramke\TEOreGenBase\assets
+xcopy src\minecraft\assets\teoregen reobf\minecraft\bstramke\TEOreGenBase\assets\teoregen\ /S
 
 
-cd reobf\minecraft\bstramke\OresDropMores2Base
-"C:\Program Files\7-Zip\7z.exe" a -tzip mod_OresDropMores2.zip *
-cd..
-move OresDropMores2Base\mod_OresDropMores2.zip mod_OresDropMores2.zip
-cd D:\GitHub\OresDropMores2
-copy mcp\reobf\minecraft\bstramke\mod_OresDropMores2.zip mod_OresDropMores2.jar
+
+copy src\minecraft\bstramke\TEOreGen\mcmod.info reobf\minecraft\bstramke\TEOreGenBase\mcmod.info
+
+cd reobf\minecraft\bstramke\TEOreGenBase
+"C:\Program Files\7-Zip\7z.exe" a -tzip mod_TEOreGen.zip *
+cd D:\GitHub\TEOreGen
+copy mcp\reobf\minecraft\bstramke\TEOreGenBase\mod_TEOreGen.zip mod_TEOreGen.jar
 pause
