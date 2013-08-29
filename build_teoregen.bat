@@ -6,10 +6,9 @@ rem del reobf\minecraft\bstramke\NetherStuffs\PluginForestry.class
 
 mkdir reobf\minecraft\bstramke\TEOreGenBase
 mkdir reobf\minecraft\bstramke\TEOreGenBase\bstramke
-
-move reobf\minecraft\bstramke\TEOreGenBase reobf\minecraft\bstramke\TEOreGenBase\bstramke
-
 mkdir reobf\minecraft\bstramke\TEOreGenBase\assets
+
+move reobf\minecraft\bstramke\TEOreGen reobf\minecraft\bstramke\TEOreGenBase\bstramke
 xcopy src\minecraft\assets\teoregen reobf\minecraft\bstramke\TEOreGenBase\assets\teoregen\ /S
 
 
