@@ -73,10 +73,10 @@ public class TEOreGen extends DummyModContainer {
 		for (int i = 0; i < Ore.INGOTNAMES.length; i++) {
 			ArrayList<ItemStack> ingots = OreDictionary.getOres(Ore.INGOTNAMES[i]);
 			if (ingots.size() >= 1) {
-				ItemStack sourceIngot = ingots.get(0);
-				float xp = FurnaceRecipes.smelting().getExperience(sourceIngot);
-				ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(sourceIngot);
-				FurnaceRecipes.smelting().addSmelting(sourceIngot.itemID, sourceIngot.getItemDamage(), result, xp);
+				ItemStack resultIngot = ingots.get(0);
+				ItemStack sourceOre = new ItemStack(blockOre, 1, i);
+				float xp = FurnaceRecipes.smelting().getExperience(resultIngot);
+				FurnaceRecipes.smelting().addSmelting(sourceOre.itemID, i, resultIngot, xp);
 			}
 		}
 
