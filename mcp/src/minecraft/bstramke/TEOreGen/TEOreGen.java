@@ -5,6 +5,7 @@ import java.util.logging.Level;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 import bstramke.TEOreGen.Blocks.ItemBlockOre;
@@ -19,7 +20,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(name = "TEOreGen", version = "0.1", modid = "TEOreGen")
+@Mod(name = "TEOreGen", version = "0.2", modid = "TEOreGen")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class TEOreGen extends DummyModContainer {
 
@@ -60,14 +61,24 @@ public class TEOreGen extends DummyModContainer {
 		OreDictionary.registerOre("oreTin", Ore.oreTin);
 		OreDictionary.registerOre("oreSilver", Ore.oreSilver);
 		OreDictionary.registerOre("oreLead", Ore.oreLead);
-		OreDictionary.registerOre("oreNickel", Ore.oreNickel);		  
-		 
-		for(int i = 0; i < Ore.NAMES.length; i++)
-		{
+		OreDictionary.registerOre("oreNickel", Ore.oreNickel);
+
+		for (int i = 0; i < Ore.NAMES.length; i++) {
 			ArrayList resList = new ArrayList();
 			resList.add(new WeightedRandomBlock(new ItemStack(blockOre, 1, i)));
-			GameRegistry.registerWorldGenerator(new WorldGenDefaultMinable(new WorldGenMinableCluster(resList, Ore.oreClusterSize[i]), Ore.oreNumCluster[i],Ore.oreMinY[i], Ore.oreMaxY[i]));
-			//CoFHWorld.addFeature(category, oreList[i], BlockOre.NAMES[i], Ore.oreClusterSize[i], Ore.oreNumCluster[i], Ore.oreMinY[i], Ore.oreMaxY[i], 0, true, BlockOre.enable[i]);
+			GameRegistry.registerWorldGenerator(new WorldGenDefaultMinable(new WorldGenMinableCluster(resList, Ore.oreClusterSize[i]), Ore.oreNumCluster[i], Ore.oreMinY[i],
+					Ore.oreMaxY[i]));
 		}
+
+		for (int i = 0; i < Ore.INGOTNAMES.length; i++) {
+			ArrayList<ItemStack> ingots = OreDictionary.getOres(Ore.INGOTNAMES[i]);
+			if (ingots.size() >= 1) {
+				ItemStack sourceIngot = ingots.get(0);
+				float xp = FurnaceRecipes.smelting().getExperience(sourceIngot);
+				ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(sourceIngot);
+				FurnaceRecipes.smelting().addSmelting(sourceIngot.itemID, sourceIngot.getItemDamage(), result, xp);
+			}
+		}
+
 	}
 }

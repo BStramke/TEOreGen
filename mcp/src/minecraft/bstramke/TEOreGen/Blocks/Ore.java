@@ -16,6 +16,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Ore extends Block {
 	public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel" };
+	public static final String[] INGOTNAMES = { "ingotCopper", "ingotTin", "ingotSilver", "ingotLead", "ingotNickel" };
 
 	public static enum Ores {
 		COPPER, TIN, SILVER, LEAD, NICKEL;
