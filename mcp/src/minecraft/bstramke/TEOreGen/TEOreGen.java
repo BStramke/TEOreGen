@@ -20,7 +20,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(name = "TEOreGen", version = "0.2", modid = "TEOreGen")
+@Mod(name = "TEOreGen", version = "0.3", modid = "TEOreGen")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class TEOreGen extends DummyModContainer {
 

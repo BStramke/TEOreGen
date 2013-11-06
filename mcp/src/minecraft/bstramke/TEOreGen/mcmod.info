@@ -1,8 +1,8 @@
 [{
   "modid": "TEOreGen",
   "name": "TEOreGen",
-  "description": "implements Thermal Expansion Ore Generation for 1.6.2",
-  "version": "0.2",
+  "description": "implements Thermal Expansion Ore Generation for 1.6.4",
+  "version": "0.3",
   "credits": "",
   "logoFile": "",
   "mcversion": "",
